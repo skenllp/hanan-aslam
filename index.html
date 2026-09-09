@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+<title>Hanan &amp; Muhammed Aslam — Wedding Invitation</title>
+
+<meta property="og:title" content="Hanan & Muhammed Aslam">
+<meta property="og:description" content="You are invited to celebrate with Hanan & Muhammed Aslam · 29 November 2026 · 11:00 AM">
+<meta property="og:image" content="assets/hero.png">
+<meta property="og:type" content="website">
+<meta name="description" content="You are invited to celebrate with Hanan & Muhammed Aslam · 29 November 2026 · 11:00 AM">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+<link rel="preload" as="image" href="assets/poster.jpg">
+
+<style>
+  :root{
+    --burgundy:#5c1220;
+    --burgundy-deep:#3d0c15;
+    --gold:#c6a15b;
+    --gold-light:#e6cd8f;
+    --gold-dim:#9c7e42;
+    --cream:#f1e7d3;
+    --cream-dim:#e6d8ba;
+    --wood:#241209;
+    --ink:#3a2416;
+    --ink-soft:#5c4530;
+    --serif: 'Cormorant Garamond', 'Times New Roman', serif;
+    --body: 'EB Garamond', Georgia, serif;
+    --arabic: 'Amiri', 'Traditional Arabic', serif;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--wood);
+    font-family: var(--body);
+    color: var(--ink);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+
+  /* ---------- desktop staging ---------- */
+  .stage{
+    position:relative;
+    max-width:480px;
+    margin:0 auto;
+    min-height:100vh;
+    min-height:100svh;
+    background:var(--cream);
+    overflow:hidden;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.4);
+  }
+  @media (min-width:701px){
+    body{
+      background-image: linear-gradient(rgba(10,4,2,.86), rgba(10,4,2,.86)), url('assets/background.png');
+      background-size: cover;
+      background-position:center;
+      background-attachment: fixed;
+      padding: 28px 0;
+    }
+    .stage{ border-radius:6px; box-shadow: 0 30px 90px rgba(0,0,0,.65), 0 0 0 1px rgba(198,161,91,.25); min-height: calc(100vh - 56px); }
+  }
+
+  body.locked, body.locked .stage{ height:100vh; height:100svh; overflow:hidden; }
+
+  img{max-width:100%; display:block;}
+
+  /* ---------- OPENING ---------- */
+  #opening{
+    position:fixed; inset:0; z-index:40;
+    max-width:480px; margin:0 auto;
+    background:#100603;
+  }
+  @media (min-width:701px){ #opening{ top:28px; bottom:28px; height:auto; border-radius:6px; overflow:hidden; } }
+
+  #opening .frame-img{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  }
+  #opening .veil{
+    position:absolute; inset:0;
+    background: linear-gradient(to bottom, rgba(10,5,2,.05) 0%, rgba(10,5,2,0) 40%, rgba(10,5,2,.55) 100%);
+  }
+  .open-cta-wrap{
+    position:absolute; left:0; right:0; bottom:9%; display:flex; justify-content:center; z-index:2;
+  }
+  .open-cta{
+    font-family: var(--body);
+    font-size:13px;
+    letter-spacing:3.5px;
+    color: var(--wood);
+    background: linear-gradient(180deg,#e6cd8f 0%, #c6a15b 45%, #a9873f 100%);
+    border:1px solid rgba(255,255,255,.35);
+    padding:15px 34px;
+    border-radius:2px;
+    cursor:pointer;
+    box-shadow: 0 4px 18px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.4);
+    text-transform:uppercase;
+    animation: breathe 3.6s ease-in-out infinite;
+  }
+  @keyframes breathe{
+    0%,100%{ box-shadow: 0 4px 18px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.4), 0 0 0 0 rgba(230,205,143,.0);}
+    50%{ box-shadow: 0 4px 22px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.5), 0 0 16px 2px rgba(230,205,143,.35);}
+  }
+
+  /* ---------- VIDEO ---------- */
+  #videoStage{
+    position:fixed; inset:0; z-index:50; max-width:480px; margin:0 auto;
+    background:#100603; display:none;
+  }
+  @media (min-width:701px){ #videoStage{ top:28px; bottom:28px; height:auto; border-radius:6px; overflow:hidden; } }
+  #doorVideo{ width:100%; height:100%; object-fit:cover; display:block; }
+
+  /* ---------- SECTION shared ---------- */
+  .page{
+    position:relative;
+    padding: 78px 30px;
+    min-height:100vh;
+    min-height:100svh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    overflow:hidden;
+  }
+  .page-bg{
+    position:absolute; inset:0; z-index:0;
+    background-size:cover; background-position:center;
+  }
+  .page-bg.tint::after{
+    content:''; position:absolute; inset:0;
+  }
+
+
+  .eyebrow-ar{ font-family:var(--arabic); font-size:30px; color:var(--burgundy); margin:0 0 6px; line-height:1.5; }
+  .eyebrow-ar.light{ color:var(--gold-light); }
+
+  .label{
+    font-family: var(--body);
+    font-size:11.5px;
+    letter-spacing:3.2px;
+    text-transform:uppercase;
+    color: var(--ink-soft);
+    margin:0 0 14px;
+  }
+  .label.on-dark{ color: var(--cream-dim); }
+
+  h2.name{
+    font-family:var(--serif);
+    font-style:italic;
+    font-weight:600;
+    font-size:44px;
+    color:var(--burgundy);
+    margin:0 0 6px;
+    line-height:1.08;
+  }
+  h2.name.on-dark{ color: var(--gold-light); }
+
+  .sub{
+    font-family:var(--body);
+    font-size:16px;
+    color:var(--ink-soft);
+    margin:0 0 18px;
+    font-style:italic;
+  }
+  .sub.on-dark{ color:var(--cream-dim); }
+
+  .body-copy{
+    font-family:var(--body);
+    font-size:17px;
+    line-height:1.85;
+    color:var(--ink-soft);
+    max-width:320px;
+    margin:0 auto;
+  }
+  .body-copy.on-dark{ color:var(--cream-dim); }
+
+  .addr{
+    font-family:var(--body);
+    font-size:13px;
+    letter-spacing:.6px;
+    line-height:1.9;
+    color: var(--ink-soft);
+  }
+
+  /* divider */
+  .divider{ display:flex; align-items:center; justify-content:center; gap:10px; width:150px; margin:20px auto; }
+  .divider::before,.divider::after{ content:''; flex:1; height:1px; background:linear-gradient(90deg, transparent, var(--gold), transparent); }
+  .divider i{ width:6px; height:6px; border:1px solid var(--gold); transform:rotate(45deg); display:block; flex:none; }
+  .divider.dark::before,.divider.dark::after{ background:linear-gradient(90deg, transparent, var(--gold-light), transparent); }
+  .divider.dark i{ border-color:var(--gold-light); }
+
+  /* soft text vignette (no hard box) */
+  .text-veil{
+    position:relative;
+    z-index:1;
+    padding: 26px 14px;
+    max-width:300px;
+  }
+  .text-veil::before{
+    content:'';
+    position:absolute; inset:-34px -18px;
+    background: radial-gradient(ellipse at center, rgba(241,231,211,.82) 0%, rgba(241,231,211,.5) 48%, rgba(241,231,211,0) 76%);
+    z-index:-1;
+    filter: blur(1px);
+  }
+  .text-veil.dark::before{
+    background: radial-gradient(ellipse at center, rgba(36,18,9,.7) 0%, rgba(36,18,9,.42) 48%, rgba(36,18,9,0) 76%);
+  }
+
+  /* floral side ornament */
+  .floral{
+    position:absolute; width:96px; height:auto; color:var(--gold);
+    opacity:.7; pointer-events:none; z-index:0;
+    filter: drop-shadow(0 1px 2px rgba(255,255,255,.55));
+  }
+  .floral.left{ left:-10px; }
+  .floral.right{ right:-10px; transform:scaleX(-1); }
+
+  .btn-gold{
+    display:inline-block;
+    font-family:var(--body);
+    font-size:12.5px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color: var(--wood);
+    text-decoration:none;
+    background: linear-gradient(180deg,#e6cd8f, #ad8b46);
+    border:1px solid rgba(255,255,255,.4);
+    padding:14px 30px;
+    border-radius:2px;
+    margin-top:22px;
+    box-shadow: 0 6px 18px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.4);
+  }
+
+  .scroll-cue{
+    position:absolute; bottom:max(22px, env(safe-area-inset-bottom)); left:0; right:0;
+    display:flex; flex-direction:column; align-items:center; gap:8px;
+    font-family:var(--body); font-size:10.5px; letter-spacing:3px; text-transform:uppercase;
+    color: var(--gold-light);
+    opacity:0;
+    animation: heroFadeIn 1.6s ease .9s forwards;
+  }
+  .scroll-cue .line{ width:1px; height:26px; background:linear-gradient(var(--gold-light), transparent); animation:cueMove 2.2s ease-in-out infinite; }
+  @keyframes cueMove{ 0%{opacity:.2; transform:translateY(-4px);} 50%{opacity:1;} 100%{opacity:.2; transform:translateY(6px);} }
+  @keyframes heroFadeIn{ from{ opacity:0; transform:translateY(8px);} to{ opacity:.95; transform:translateY(0);} }
+
+  /* reveal-on-scroll (single, gentle) */
+  .reveal{ position:relative; z-index:1; opacity:0; transform:translateY(18px); transition: opacity 1.1s ease, transform 1.1s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  /* typewriter text */
+  .type-text{ min-height:1.85em; }
+  .type-cursor{
+    display:inline-block; width:1px; height:1em; vertical-align:-0.12em;
+    background:currentColor; margin-left:2px; opacity:.75;
+    animation: blinkCursor .8s steps(1) infinite;
+  }
+  @keyframes blinkCursor{ 50%{ opacity:0; } }
+
+  /* ===== HERO ===== */
+  #hero{ padding:0; min-height:100vh; min-height:100svh; }
+  #hero img{ width:100%; height:100%; object-fit:cover; position:absolute; inset:0; }
+
+
+  /* ===== PAGE 04 date ===== */
+  .date-num{
+    font-family:var(--serif); font-weight:500; font-size:150px; line-height:.85; color:var(--gold);
+    text-shadow: 0 6px 24px rgba(0,0,0,.15);
+    margin:8px 0 0;
+  }
+  .date-month{ font-family:var(--body); letter-spacing:6px; font-size:22px; color:var(--burgundy); text-transform:uppercase; margin-top:6px; }
+  .date-year{ font-family:var(--body); letter-spacing:6px; font-size:22px; color:var(--burgundy); text-transform:uppercase; }
+  .date-time{ margin-top:18px; font-family:var(--body); font-style:italic; font-size:19px; color:var(--ink-soft); }
+
+  /* ===== countdown ===== */
+  .cd-grid{ display:flex; gap:14px; margin-top:8px; }
+  .cd-cell{
+    width:70px; padding:16px 0 12px;
+    background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(0,0,0,.12));
+    border: 1px solid rgba(198,161,91,.55);
+    border-radius:4px;
+  }
+  .cd-num{ font-family:var(--serif); font-size:34px; color:var(--gold-light); font-weight:600; }
+  .cd-lab{ font-family:var(--body); font-size:9.5px; letter-spacing:2.2px; text-transform:uppercase; color:var(--cream-dim); margin-top:4px; }
+
+  /* ===== scratch card ===== */
+  .scratch-wrap{ position:relative; width:280px; height:180px; border-radius:8px; overflow:hidden; box-shadow:0 18px 45px rgba(0,0,0,.4); }
+  .scratch-msg{
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    background: linear-gradient(180deg, var(--cream), var(--cream-dim));
+    padding:24px; text-align:center;
+  }
+  .scratch-msg p{ font-family:var(--serif); font-style:italic; font-size:21px; color:var(--burgundy); line-height:1.5; margin:0; }
+  #scratchCanvas{ position:absolute; inset:0; width:100%; height:100%; touch-action:none; cursor:grab; }
+  .scratch-hint{ margin-top:16px; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--cream-dim); opacity:.85; }
+
+  /* ===== balloons ===== */
+  #balloonField{ position:relative; width:100%; height:420px; overflow:hidden; }
+  .balloon{
+    position:absolute; bottom:-140px; width:58px; height:72px; cursor:pointer;
+    animation: floatUp linear forwards;
+  }
+  .balloon .body{
+    width:100%; height:100%; border-radius:50% 50% 48% 48%;
+    box-shadow: inset -10px -12px 18px rgba(0,0,0,.25), inset 8px 10px 16px rgba(255,255,255,.25), 0 8px 16px rgba(0,0,0,.2);
+    position:relative;
+  }
+  .balloon .string{ position:absolute; left:50%; bottom:-30px; width:1px; height:30px; background:rgba(230,205,143,.5); }
+  .balloon.pop{ animation:none; }
+  @keyframes floatUp{ to{ transform: translateY(-560px); } }
+  .burst{ position:absolute; border-radius:50%; pointer-events:none; }
+
+  /* ===== family ===== */
+  .fam-block{ margin-bottom:30px; }
+  .fam-side{ font-family:var(--body); font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--gold-dim); margin-bottom:8px; }
+  .fam-parents{ font-family:var(--serif); font-style:italic; font-size:26px; color:var(--burgundy); margin:0 0 10px; }
+  .fam-kids{ font-family:var(--body); font-size:15.5px; color:var(--ink-soft); line-height:1.9; }
+
+  /* map btn */
+  a.btn-gold{ cursor:pointer; }
+
+  /* final */
+  #closing{ background: linear-gradient(180deg, var(--burgundy-deep), var(--burgundy) 60%, var(--burgundy-deep)); }
+  #closing .name, #closing .sub{ color:var(--gold-light); }
+
+  ::selection{ background: var(--gold); color:#fff; }
+
+  main[hidden]{ display:none !important; }
+
+  /* ---------- music toggle ---------- */
+  .mute-btn{
+    position:absolute; top:16px; right:16px; z-index:70;
+    width:38px; height:38px; border-radius:50%;
+    background:rgba(36,18,9,.55); border:1px solid rgba(198,161,91,.55);
+    color:var(--gold-light); font-size:15px;
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer; backdrop-filter:blur(3px);
+    box-shadow:0 4px 12px rgba(0,0,0,.35);
+  }
+</style>
+</head>
+<body class="locked">
+
+<div class="stage">
+
+  <audio id="bgSong" src="assets/song.mp3" loop preload="auto"></audio>
+  <button class="mute-btn" id="muteBtn" type="button" aria-label="Mute music">&#9835;</button>
+
+  <!-- OPENING -->
+  <section id="opening" aria-label="Opening">
+    <img class="frame-img" src="assets/poster.jpg" alt="Ornate closed wooden doors, Persian carpet and brass lanterns">
+    <div class="veil"></div>
+    <div class="open-cta-wrap">
+      <button class="open-cta" id="openBtn" type="button">Open Invitation</button>
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+  <section id="videoStage" aria-label="Doors opening">
+    <video id="doorVideo" src="assets/opening.mp4" poster="assets/poster.jpg" playsinline preload="auto"></video>
+  </section>
+
+  <!-- MAIN STORY -->
+  <main id="story" hidden>
+
+    <!-- HERO -->
+    <section id="hero" class="page">
+      <img src="assets/hero.png" alt="Hanan and Muhammed Aslam wedding invitation, 29 November 2026">
+      <div class="scroll-cue"><span>Scroll Down</span><span class="line"></span></div>
+    </section>
+
+    <!-- PAGE 01 — INVITATION -->
+    <section class="page" style="background:linear-gradient(180deg, var(--cream), var(--cream-dim));">
+      <svg class="floral left" style="top:18px;" viewBox="0 0 100 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M14 210 C 10 160 22 140 16 100 C 11 70 20 50 15 20" stroke="currentColor" stroke-width="1.4" opacity=".7"/>
+        <ellipse cx="30" cy="150" rx="16" ry="7" transform="rotate(-25 30 150)" fill="currentColor" opacity=".28"/>
+        <ellipse cx="6" cy="120" rx="14" ry="6" transform="rotate(20 6 120)" fill="currentColor" opacity=".24"/>
+        <ellipse cx="28" cy="85" rx="14" ry="6" transform="rotate(-20 28 85)" fill="currentColor" opacity=".24"/>
+        <g transform="translate(15,20)">
+          <circle r="5" fill="currentColor" opacity=".55"/><circle cx="-8" cy="-3" r="5" fill="currentColor" opacity=".4"/>
+          <circle cx="8" cy="-3" r="5" fill="currentColor" opacity=".4"/><circle cx="-6" cy="7" r="5" fill="currentColor" opacity=".4"/>
+          <circle cx="6" cy="7" r="5" fill="currentColor" opacity=".4"/>
+        </g>
+      </svg>
+      <svg class="floral right" style="bottom:18px;" viewBox="0 0 100 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M14 210 C 10 160 22 140 16 100 C 11 70 20 50 15 20" stroke="currentColor" stroke-width="1.4" opacity=".7"/>
+        <ellipse cx="30" cy="150" rx="16" ry="7" transform="rotate(-25 30 150)" fill="currentColor" opacity=".28"/>
+        <ellipse cx="6" cy="120" rx="14" ry="6" transform="rotate(20 6 120)" fill="currentColor" opacity=".24"/>
+        <ellipse cx="28" cy="85" rx="14" ry="6" transform="rotate(-20 28 85)" fill="currentColor" opacity=".24"/>
+        <g transform="translate(15,20)">
+          <circle r="5" fill="currentColor" opacity=".55"/><circle cx="-8" cy="-3" r="5" fill="currentColor" opacity=".4"/>
+          <circle cx="8" cy="-3" r="5" fill="currentColor" opacity=".4"/><circle cx="-6" cy="7" r="5" fill="currentColor" opacity=".4"/>
+          <circle cx="6" cy="7" r="5" fill="currentColor" opacity=".4"/>
+        </g>
+      </svg>
+      <div class="reveal">
+        <p class="eyebrow-ar">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+        <div class="divider"><i></i></div>
+        <h2 class="name" style="font-size:30px;">Together With Our Families</h2>
+        <p class="body-copy type-text">With the blessings of our families, we invite you to join us as we celebrate a beautiful new beginning.</p>
+      </div>
+    </section>
+
+    <!-- PAGE 02 — BRIDE -->
+    <section class="page">
+      <div class="page-bg" style="background-image:url('assets/background.png'); filter:saturate(1) brightness(1.02);"></div>
+      <svg class="floral right" style="top:30%;" viewBox="0 0 100 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M14 210 C 10 160 22 140 16 100 C 11 70 20 50 15 20" stroke="currentColor" stroke-width="1.4" opacity=".8"/>
+        <ellipse cx="30" cy="150" rx="16" ry="7" transform="rotate(-25 30 150)" fill="currentColor" opacity=".32"/>
+        <ellipse cx="6" cy="120" rx="14" ry="6" transform="rotate(20 6 120)" fill="currentColor" opacity=".28"/>
+        <ellipse cx="28" cy="85" rx="14" ry="6" transform="rotate(-20 28 85)" fill="currentColor" opacity=".28"/>
+        <g transform="translate(15,20)">
+          <circle r="5" fill="currentColor" opacity=".6"/><circle cx="-8" cy="-3" r="5" fill="currentColor" opacity=".45"/>
+          <circle cx="8" cy="-3" r="5" fill="currentColor" opacity=".45"/><circle cx="-6" cy="7" r="5" fill="currentColor" opacity=".45"/>
+          <circle cx="6" cy="7" r="5" fill="currentColor" opacity=".45"/>
+        </g>
+      </svg>
+      <svg class="floral left" style="bottom:26%;" viewBox="0 0 100 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M14 210 C 10 160 22 140 16 100 C 11 70 20 50 15 20" stroke="currentColor" stroke-width="1.4" opacity=".8"/>
+        <ellipse cx="30" cy="150" rx="16" ry="7" transform="rotate(-25 30 150)" fill="currentColor" opacity=".32"/>
+        <ellipse cx="6" cy="120" rx="14" ry="6" transform="rotate(20 6 120)" fill="currentColor" opacity=".28"/>
+        <ellipse cx="28" cy="85" rx="14" ry="6" transform="rotate(-20 28 85)" fill="currentColor" opacity=".28"/>
+        <g transform="translate(15,20)">
+          <circle r="5" fill="currentColor" opacity=".6"/><circle cx="-8" cy="-3" r="5" fill="currentColor" opacity=".45"/>
+          <circle cx="8" cy="-3" r="5" fill="currentColor" opacity=".45"/><circle cx="-6" cy="7" r="5" fill="currentColor" opacity=".45"/>
+          <circle cx="6" cy="7" r="5" fill="currentColor" opacity=".45"/>
+        </g>
+      </svg>
+      <div class="text-veil reveal">
+        <p class="label">The Bride</p>
+        <h2 class="name">Hanan Azad</h2>
+        <p class="sub">Daughter of Azad &amp; Hazeena</p>
+        <div class="divider"><i></i></div>
+        <p class="body-copy" style="font-size:15.5px;">Haneen Azad<br>Muhammed Azad</p>
+        <div class="divider"><i></i></div>
+        <p class="addr">Thekkeputhenpurayil House<br>Puthupady P.O.<br>Muvattupuzha, Perumattom</p>
+      </div>
+    </section>
+
+    <!-- PAGE 03 — GROOM -->
+    <section class="page">
+      <div class="page-bg" style="background-image:url('assets/background.png'); filter:saturate(1) brightness(1.02) hue-rotate(-6deg); transform:scaleX(-1);"></div>
+      <svg class="floral left" style="top:30%;" viewBox="0 0 100 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M14 210 C 10 160 22 140 16 100 C 11 70 20 50 15 20" stroke="currentColor" stroke-width="1.4" opacity=".8"/>
+        <ellipse cx="30" cy="150" rx="16" ry="7" transform="rotate(-25 30 150)" fill="currentColor" opacity=".32"/>
+        <ellipse cx="6" cy="120" rx="14" ry="6" transform="rotate(20 6 120)" fill="currentColor" opacity=".28"/>
+        <ellipse cx="28" cy="85" rx="14" ry="6" transform="rotate(-20 28 85)" fill="currentColor" opacity=".28"/>
+        <g transform="translate(15,20)">
+          <circle r="5" fill="currentColor" opacity=".6"/><circle cx="-8" cy="-3" r="5" fill="currentColor" opacity=".45"/>
+          <circle cx="8" cy="-3" r="5" fill="currentColor" opacity=".45"/><circle cx="-6" cy="7" r="5" fill="currentColor" opacity=".45"/>
+          <circle cx="6" cy="7" r="5" fill="currentColor" opacity=".45"/>
+        </g>
+      </svg>
+      <svg class="floral right" style="bottom:26%;" viewBox="0 0 100 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M14 210 C 10 160 22 140 16 100 C 11 70 20 50 15 20" stroke="currentColor" stroke-width="1.4" opacity=".8"/>
+        <ellipse cx="30" cy="150" rx="16" ry="7" transform="rotate(-25 30 150)" fill="currentColor" opacity=".32"/>
+        <ellipse cx="6" cy="120" rx="14" ry="6" transform="rotate(20 6 120)" fill="currentColor" opacity=".28"/>
+        <ellipse cx="28" cy="85" rx="14" ry="6" transform="rotate(-20 28 85)" fill="currentColor" opacity=".28"/>
+        <g transform="translate(15,20)">
+          <circle r="5" fill="currentColor" opacity=".6"/><circle cx="-8" cy="-3" r="5" fill="currentColor" opacity=".45"/>
+          <circle cx="8" cy="-3" r="5" fill="currentColor" opacity=".45"/><circle cx="-6" cy="7" r="5" fill="currentColor" opacity=".45"/>
+          <circle cx="6" cy="7" r="5" fill="currentColor" opacity=".45"/>
+        </g>
+      </svg>
+      <div class="text-veil reveal">
+        <p class="label">The Groom</p>
+        <h2 class="name">Muhammed Aslam</h2>
+        <p class="sub">Son of Abubacker M.K. &amp; Selma</p>
+        <div class="divider"><i></i></div>
+        <p class="body-copy" style="font-size:15.5px;">Ali Najih</p>
+        <div class="divider"><i></i></div>
+        <p class="addr">Malekudy House<br>Ponjassery P.O.<br>Perumbavoor</p>
+      </div>
+    </section>
+
+    <!-- PAGE 04 — DATE -->
+    <section class="page" style="background:linear-gradient(180deg, var(--cream-dim), var(--cream));">
+      <div class="reveal">
+        <p class="label">Save the Date</p>
+        <div class="date-num">29</div>
+        <div class="date-month">November</div>
+        <div class="date-year">2026</div>
+        <div class="divider"><i></i></div>
+        <p class="date-time">11:00 in the morning</p>
+      </div>
+    </section>
+
+    <!-- PAGE 05 — VENUE -->
+    <section class="page">
+      <div class="page-bg" style="background-image:url('assets/background.png'); filter:saturate(.85) brightness(.4);"></div>
+      <div class="page-bg" style="background:linear-gradient(180deg, rgba(61,12,21,.55), rgba(36,18,9,.78));"></div>
+      <div class="reveal">
+        <p class="label on-dark">The Celebration</p>
+        <h2 class="name on-dark" style="font-size:34px;">Nakshatra<br>Convention Centre</h2>
+        <div class="divider dark"><i></i></div>
+        <p class="body-copy on-dark">29 November 2026<br>11:00 AM</p>
+        <a class="btn-gold" href="https://maps.app.goo.gl/HuC1D99Lfx81czfc6?g_st=iw" target="_blank" rel="noopener">View Location</a>
+      </div>
+    </section>
+
+    <!-- PAGE 06 — COUNTDOWN -->
+    <section class="page" style="background:linear-gradient(180deg, var(--burgundy-deep), var(--burgundy));">
+      <div class="reveal">
+        <p class="label on-dark">Counting Down To</p>
+        <h2 class="name on-dark" style="font-size:28px;">Our Wedding Day</h2>
+        <div class="cd-grid" id="countdown">
+          <div class="cd-cell"><div class="cd-num" id="cdD">00</div><div class="cd-lab">Days</div></div>
+          <div class="cd-cell"><div class="cd-num" id="cdH">00</div><div class="cd-lab">Hours</div></div>
+        </div>
+        <div class="cd-grid" style="margin-top:14px;">
+          <div class="cd-cell"><div class="cd-num" id="cdM">00</div><div class="cd-lab">Minutes</div></div>
+          <div class="cd-cell"><div class="cd-num" id="cdS">00</div><div class="cd-lab">Seconds</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 07 — SCRATCH TO REVEAL -->
+    <section class="page" style="background:linear-gradient(180deg, var(--wood), #1b0f07);">
+      <div class="reveal">
+        <p class="label on-dark">A Little Surprise</p>
+        <h2 class="name on-dark" style="font-size:26px;">Scratch to Reveal</h2>
+        <div class="scratch-wrap" id="scratchWrap">
+          <div class="scratch-msg"><p class="type-text" data-trigger="manual" id="scratchText">Your presence will make our celebration even more special.</p></div>
+          <canvas id="scratchCanvas"></canvas>
+        </div>
+        <p class="scratch-hint">Scratch the gold surface</p>
+      </div>
+    </section>
+
+    <!-- PAGE 08 — BALLOON POP -->
+    <section class="page" style="background:linear-gradient(180deg, var(--cream), var(--cream-dim)); padding-top:70px;">
+      <p class="label">Celebrate With Us</p>
+      <div class="divider"><i></i></div>
+      <div id="balloonField"></div>
+    </section>
+
+    <!-- PAGE 09 — FAMILY -->
+    <section class="page" style="background:linear-gradient(180deg, var(--cream-dim), var(--cream));">
+      <div class="reveal">
+        <p class="label">Our Families</p>
+        <div class="divider"><i></i></div>
+        <div class="fam-block">
+          <p class="fam-side">Bride's Family</p>
+          <p class="fam-parents">Azad &amp; Hazeena</p>
+          <p class="fam-kids">Haneen Azad<br>Muhammed Azad</p>
+        </div>
+        <div class="divider"><i></i></div>
+        <div class="fam-block" style="margin-bottom:0;">
+          <p class="fam-side">Groom's Family</p>
+          <p class="fam-parents">Abubacker M.K. &amp; Selma</p>
+          <p class="fam-kids">Ali Najih</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 10 — COMPLIMENTS -->
+    <section class="page" style="background:linear-gradient(180deg, var(--wood), #1b0f07);">
+      <div class="reveal">
+        <p class="label on-dark">With Compliments</p>
+        <div class="divider dark"><i></i></div>
+        <p class="body-copy on-dark" style="font-size:20px; font-family:var(--serif); font-style:italic; line-height:2;">Haneen<br>Muhammed<br>Ali</p>
+      </div>
+    </section>
+
+    <!-- FINAL CLOSING -->
+    <section id="closing" class="page">
+      <div class="reveal">
+        <p class="eyebrow-ar light">وَاللَّهُ خَيْرُ الرَّازِقِينَ</p>
+        <h2 class="name" style="font-size:38px;">Hanan</h2>
+        <p class="sub" style="font-size:22px; margin:2px 0;">&amp;</p>
+        <h2 class="name" style="font-size:38px;">Muhammed Aslam</h2>
+        <div class="divider dark"><i></i></div>
+        <p class="sub">29 November 2026 · 11:00 AM</p>
+        <p class="body-copy on-dark type-text" style="margin-top:26px; font-family:var(--serif); font-style:italic; font-size:19px;">Together in faith, towards forever.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+(function(){
+  const body = document.body;
+  const opening = document.getElementById('opening');
+  const videoStage = document.getElementById('videoStage');
+  const video = document.getElementById('doorVideo');
+  const openBtn = document.getElementById('openBtn');
+  const story = document.getElementById('story');
+  const bgSong = document.getElementById('bgSong');
+  const muteBtn = document.getElementById('muteBtn');
+
+  function playSong(){
+    bgSong.volume = 0.55;
+    const p = bgSong.play();
+    if(p && p.catch){ p.catch(function(){}); }
+  }
+  muteBtn.addEventListener('click', function(){
+    bgSong.muted = !bgSong.muted;
+    muteBtn.innerHTML = bgSong.muted ? '&#9835;&#x0338;' : '&#9835;';
+    muteBtn.style.opacity = bgSong.muted ? '.55' : '1';
+  });
+
+  function enterStory(){
+    videoStage.style.display = 'none';
+    story.hidden = false;
+    body.classList.remove('locked');
+    window.scrollTo(0,0);
+    initReveal();
+    initTypewriters();
+    requestAnimationFrame(function(){ requestAnimationFrame(sizeCanvas); });
+  }
+
+  openBtn.addEventListener('click', function(){
+    opening.style.display = 'none';
+    videoStage.style.display = 'block';
+    video.currentTime = 0;
+    playSong();
+    const p = video.play();
+    if(p && p.catch){ p.catch(function(){ enterStory(); }); }
+  });
+
+  video.addEventListener('ended', enterStory);
+
+  /* ---------- gentle reveal on scroll ---------- */
+  function initReveal(){
+    const items = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.35 });
+    items.forEach(function(el){ io.observe(el); });
+  }
+
+  /* ---------- typewriter text (types out like handwriting) ---------- */
+  function typeOut(el, speed){
+    if(!el || el.dataset.typed) return;
+    el.dataset.typed = '1';
+    const full = el.textContent;
+    el.textContent = '';
+    const cursor = document.createElement('span');
+    cursor.className = 'type-cursor';
+    let i = 0;
+    (function step(){
+      if(i <= full.length){
+        el.textContent = full.slice(0, i);
+        el.appendChild(cursor);
+        i++;
+        setTimeout(step, speed || 38);
+      } else {
+        cursor.remove();
+      }
+    })();
+  }
+  function initTypewriters(){
+    const items = document.querySelectorAll('.type-text:not([data-trigger="manual"])');
+    const io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ typeOut(e.target); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.6 });
+    items.forEach(function(el){ io.observe(el); });
+  }
+
+  /* ---------- countdown ---------- */
+  function pad(n){ return String(n).padStart(2,'0'); }
+  const target = new Date('2026-11-29T11:00:00+05:30').getTime();
+  function tickCountdown(){
+    const now = Date.now();
+    let diff = Math.max(0, target - now);
+    const d = Math.floor(diff / 86400000); diff -= d*86400000;
+    const h = Math.floor(diff / 3600000); diff -= h*3600000;
+    const m = Math.floor(diff / 60000); diff -= m*60000;
+    const s = Math.floor(diff / 1000);
+    const dD=document.getElementById('cdD'), dH=document.getElementById('cdH'),
+          dM=document.getElementById('cdM'), dS=document.getElementById('cdS');
+    if(dD){ dD.textContent=pad(d); dH.textContent=pad(h); dM.textContent=pad(m); dS.textContent=pad(s); }
+  }
+  tickCountdown();
+  setInterval(tickCountdown, 1000);
+
+  /* ---------- scratch card ---------- */
+  const wrap = document.getElementById('scratchWrap');
+  const canvas = document.getElementById('scratchCanvas');
+  const ctx = canvas.getContext('2d');
+  let scratchDone = false;
+
+  function sizeCanvas(){
+    const r = wrap.getBoundingClientRect();
+    canvas.width = r.width; canvas.height = r.height;
+    drawGoldLayer();
+  }
+  function drawGoldLayer(){
+    const g = ctx.createLinearGradient(0,0,canvas.width,canvas.height);
+    g.addColorStop(0,'#e6cd8f'); g.addColorStop(.5,'#c6a15b'); g.addColorStop(1,'#9c7e42');
+    ctx.globalCompositeOperation = 'source-over';
+    ctx.fillStyle = g;
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+    ctx.fillStyle = 'rgba(255,255,255,.12)';
+    for(let i=0;i<40;i++){
+      ctx.beginPath();
+      ctx.arc(Math.random()*canvas.width, Math.random()*canvas.height, Math.random()*1.6+.3, 0, Math.PI*2);
+      ctx.fill();
+    }
+    ctx.textAlign='center'; ctx.textBaseline='middle';
+    ctx.fillStyle='rgba(58,36,22,.55)';
+    ctx.font= '600 13px EB Garamond, serif';
+    ctx.fillText('S C R A T C H', canvas.width/2, canvas.height/2);
+  }
+  window.addEventListener('resize', sizeCanvas);
+  sizeCanvas();
+
+  function erase(x,y){
+    ctx.globalCompositeOperation = 'destination-out';
+    ctx.beginPath();
+    ctx.arc(x,y,20,0,Math.PI*2);
+    ctx.fill();
+  }
+  function getPos(e){
+    const r = canvas.getBoundingClientRect();
+    const t = e.touches ? e.touches[0] : e;
+    return { x: t.clientX - r.left, y: t.clientY - r.top };
+  }
+  function checkProgress(){
+    if(scratchDone) return;
+    const data = ctx.getImageData(0,0,canvas.width,canvas.height).data;
+    let clear=0; const total = data.length/4;
+    for(let i=3;i<data.length;i+=4*17){ if(data[i]<80) clear++; }
+    const sampled = Math.ceil(total/17);
+    if(clear/sampled > 0.65){
+      scratchDone = true;
+      canvas.style.transition = 'opacity .6s ease';
+      canvas.style.opacity = '0';
+      setTimeout(function(){ canvas.style.pointerEvents='none'; }, 650);
+      typeOut(document.getElementById('scratchText'), 32);
+    }
+  }
+  let scratching = false;
+  function start(e){ scratching = true; const p = getPos(e); erase(p.x,p.y); e.preventDefault(); }
+  function move(e){ if(!scratching) return; const p = getPos(e); erase(p.x,p.y); checkProgress(); e.preventDefault(); }
+  function end(){ scratching = false; checkProgress(); }
+  canvas.addEventListener('mousedown', start);
+  canvas.addEventListener('mousemove', move);
+  window.addEventListener('mouseup', end);
+  canvas.addEventListener('touchstart', start, {passive:false});
+  canvas.addEventListener('touchmove', move, {passive:false});
+  canvas.addEventListener('touchend', end);
+
+  /* ---------- balloons ---------- */
+  const field = document.getElementById('balloonField');
+  const palette = ['#5c1220', '#c6a15b', '#efe4cc', '#4a2c17'];
+  let audioCtx;
+  function pop(){
+    try{
+      audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+      const o = audioCtx.createOscillator();
+      const g = audioCtx.createGain();
+      o.type='sine'; o.frequency.setValueAtTime(520, audioCtx.currentTime);
+      o.frequency.exponentialRampToValueAtTime(120, audioCtx.currentTime + .14);
+      g.gain.setValueAtTime(.16, audioCtx.currentTime);
+      g.gain.exponentialRampToValueAtTime(.001, audioCtx.currentTime + .16);
+      o.connect(g); g.connect(audioCtx.destination);
+      o.start(); o.stop(audioCtx.currentTime + .17);
+    }catch(e){}
+  }
+  function spawnBalloon(){
+    if(!field.isConnected) return;
+    const b = document.createElement('div');
+    b.className = 'balloon';
+    const color = palette[Math.floor(Math.random()*palette.length)];
+    const left = 8 + Math.random()*76;
+    const dur = 9 + Math.random()*5;
+    b.style.left = left + '%';
+    b.style.animationDuration = dur + 's';
+    b.innerHTML = '<div class="string"></div><div class="body" style="background:radial-gradient(circle at 32% 28%, rgba(255,255,255,.55), '+color+' 55%, '+shade(color)+' 100%);"></div>';
+    field.appendChild(b);
+    const timer = setTimeout(function(){ if(b.isConnected) b.remove(); }, dur*1000);
+    b.addEventListener('click', function(){
+      clearTimeout(timer);
+      burst(b);
+      pop();
+      b.remove();
+    });
+  }
+  function shade(hex){
+    const n = parseInt(hex.slice(1),16);
+    let r=(n>>16)-40, g=((n>>8)&255)-40, bl=(n&255)-40;
+    r=Math.max(0,r); g=Math.max(0,g); bl=Math.max(0,bl);
+    return 'rgb('+r+','+g+','+bl+')';
+  }
+  function burst(b){
+    const rect = b.getBoundingClientRect();
+    const fieldRect = field.getBoundingClientRect();
+    const cx = rect.left - fieldRect.left + rect.width/2;
+    const cy = rect.top - fieldRect.top + rect.height/2;
+    for(let i=0;i<10;i++){
+      const p = document.createElement('div');
+      p.className = 'burst';
+      const size = 4 + Math.random()*4;
+      p.style.width = size+'px'; p.style.height = size+'px';
+      p.style.left = cx+'px'; p.style.top = cy+'px';
+      p.style.background = palette[Math.floor(Math.random()*palette.length)];
+      const angle = Math.random()*Math.PI*2;
+      const dist = 24 + Math.random()*34;
+      p.style.transition = 'transform .6s ease-out, opacity .6s ease-out';
+      field.appendChild(p);
+      requestAnimationFrame(function(){
+        p.style.transform = 'translate('+(Math.cos(angle)*dist)+'px,'+(Math.sin(angle)*dist)+'px)';
+        p.style.opacity = '0';
+      });
+      setTimeout(function(){ p.remove(); }, 650);
+    }
+  }
+  let balloonInterval;
+  const balloonSection = field.closest('section');
+  const bIo = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        for(let i=0;i<5;i++){ setTimeout(spawnBalloon, i*500); }
+        balloonInterval = setInterval(spawnBalloon, 1800);
+      } else {
+        clearInterval(balloonInterval);
+      }
+    });
+  }, {threshold:.3});
+  bIo.observe(balloonSection);
+
+})();
+</script>
+</body>
+</html>
