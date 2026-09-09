@@ -332,11 +332,11 @@
 
   /* ===== HERO ===== */
   #hero{ padding:0; min-height:100vh; min-height:100svh; }
-  #hero img{ width:100%; height:100%; object-fit:cover; position:absolute; inset:0; }
+  #hero img{ width:100%; height:100%; object-fit:cover; position:absolute; inset:0; z-index:1; }
 
   .hero-butterfly{
-    position:absolute; z-index:3; pointer-events:none;
-    filter: drop-shadow(0 0 8px rgba(230,205,143,.5)) drop-shadow(0 3px 9px rgba(0,0,0,.28));
+    position:absolute; z-index:5; pointer-events:none;
+    filter: drop-shadow(0 0 12px rgba(230,205,143,.7)) drop-shadow(0 3px 12px rgba(0,0,0,.4));
   }
   .hero-butterfly img{ width:100%; display:block; }
   .hero-butterfly-1{
@@ -354,14 +354,14 @@
   }
   @keyframes butterflyFloat1{
     0%,100%{ transform: translate(0,0) rotate(0deg); }
-    25%{ transform: translate(3px,-9px) rotate(3deg); }
-    50%{ transform: translate(-2px,-4px) rotate(-2deg); }
-    75%{ transform: translate(4px,-8px) rotate(2deg); }
+    25%{ transform: translate(12px,-18px) rotate(8deg); }
+    50%{ transform: translate(-8px,-12px) rotate(-6deg); }
+    75%{ transform: translate(15px,-20px) rotate(5deg); }
   }
   @keyframes butterflyFloat2{
     0%,100%{ transform: translate(0,0) rotate(0deg); }
-    30%{ transform: translate(-3px,-6px) rotate(-3deg); }
-    60%{ transform: translate(2px,-8px) rotate(2deg); }
+    30%{ transform: translate(-10px,-15px) rotate(-8deg); }
+    60%{ transform: translate(8px,-18px) rotate(6deg); }
   }
 
 
