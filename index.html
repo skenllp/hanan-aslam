@@ -7,8 +7,13 @@
 
 <meta property="og:title" content="Hanan & Muhammed Aslam">
 <meta property="og:description" content="You are invited to celebrate with Hanan & Muhammed Aslam · 29 November 2026 · 11:00 AM">
-<meta property="og:image" content="assets/hero.png">
+<meta property="og:image" content="https://hanan-aslam.vercel.app/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="800">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://hanan-aslam.vercel.app/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://hanan-aslam.vercel.app/assets/og-image.jpg">
 <meta name="description" content="You are invited to celebrate with Hanan & Muhammed Aslam · 29 November 2026 · 11:00 AM">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -92,6 +97,26 @@
   .open-cta-wrap{
     position:absolute; left:0; right:0; bottom:9%; display:flex; justify-content:center; z-index:2;
   }
+  .ar-welcome{
+    position:absolute; top:9%; left:0; right:0; text-align:center; z-index:2;
+    font-family:var(--arabic); font-size:34px; color:var(--gold-light);
+    text-shadow:0 2px 16px rgba(0,0,0,.55);
+    opacity:0; animation: heroFadeIn 1.6s ease .4s forwards;
+  }
+  .ar-names{
+    position:absolute; top:50%; left:0; right:0; transform:translateY(-50%);
+    text-align:center; z-index:2;
+    opacity:0; animation: heroFadeIn 1.8s ease .8s forwards;
+  }
+  .ar-names .ar-name{
+    font-family:var(--arabic); font-size:52px; line-height:1.35; margin:0;
+    background:linear-gradient(180deg,#f6e7b4 10%, #e6cd8f 45%, #a9873f 90%);
+    -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:var(--gold-light);
+    filter: drop-shadow(0 3px 10px rgba(0,0,0,.55));
+  }
+  .ar-names .ar-divider{ display:flex; align-items:center; justify-content:center; gap:9px; width:110px; margin:8px auto; }
+  .ar-names .ar-divider::before, .ar-names .ar-divider::after{ content:''; flex:1; height:1px; background:linear-gradient(90deg, transparent, var(--gold-light), transparent); }
+  .ar-names .ar-divider i{ width:6px; height:6px; border:1px solid var(--gold-light); transform:rotate(45deg); display:block; flex:none; }
   .open-cta{
     font-family: var(--body);
     font-size:13px;
@@ -267,6 +292,44 @@
   }
   @keyframes blinkCursor{ 50%{ opacity:0; } }
 
+  /* letter-by-letter name reveal */
+  .letters .char{
+    display:inline-block; opacity:0; transform:translateY(14px);
+    transition: opacity .5s ease, transform .5s ease;
+  }
+  .letters.in .char{ opacity:1; transform:translateY(0); }
+
+  /* flip card (compliments) */
+  .flip-wrap{ perspective:1000px; width:100%; max-width:280px; margin:0 auto; cursor:pointer; }
+  .flip-card{
+    position:relative; width:100%; height:190px;
+    transform-style:preserve-3d; transition: transform .7s cubic-bezier(.4,.2,.2,1);
+  }
+  .flip-card.flipped{ transform:rotateY(180deg); }
+  .flip-face{
+    position:absolute; inset:0; backface-visibility:hidden;
+    border:1px solid rgba(198,161,91,.45); border-radius:8px;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    padding:20px; text-align:center;
+  }
+  .flip-front{
+    background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(0,0,0,.14));
+  }
+  .flip-back{
+    background:linear-gradient(180deg, rgba(230,205,143,.14), rgba(0,0,0,.1));
+    transform:rotateY(180deg);
+  }
+  .flip-hint{ margin-top:14px; font-size:10.5px; letter-spacing:2px; text-transform:uppercase; color:var(--cream-dim); opacity:.75; }
+
+  /* confetti */
+  .confetti-piece{
+    position:absolute; top:-10px; pointer-events:none;
+    animation: confettiFall linear forwards;
+  }
+  @keyframes confettiFall{
+    to{ transform: translateY(460px) rotate(540deg); opacity:.15; }
+  }
+
   /* ===== HERO ===== */
   #hero{ padding:0; min-height:100vh; min-height:100svh; }
   #hero img{ width:100%; height:100%; object-fit:cover; position:absolute; inset:0; }
@@ -360,6 +423,12 @@
   <section id="opening" aria-label="Opening">
     <img class="frame-img" src="assets/poster.jpg" alt="Ornate closed wooden doors, Persian carpet and brass lanterns">
     <div class="veil"></div>
+    <div class="ar-welcome">أهلاً وسهلاً</div>
+    <div class="ar-names">
+      <p class="ar-name">حنان</p>
+      <div class="ar-divider"><i></i></div>
+      <p class="ar-name">محمد أسلم</p>
+    </div>
     <div class="open-cta-wrap">
       <button class="open-cta" id="openBtn" type="button">Open Invitation</button>
     </div>
@@ -438,7 +507,7 @@
       </svg>
       <div class="text-veil reveal">
         <p class="label">The Bride</p>
-        <h2 class="name">Hanan Azad</h2>
+        <h2 class="name letters">Hanan Azad</h2>
         <p class="sub">Daughter of Azad &amp; Hazeena</p>
         <div class="divider"><i></i></div>
         <p class="body-copy" style="font-size:15.5px;">Haneen Azad<br>Muhammed Azad</p>
@@ -474,7 +543,7 @@
       </svg>
       <div class="text-veil reveal">
         <p class="label">The Groom</p>
-        <h2 class="name">Muhammed Aslam</h2>
+        <h2 class="name letters" style="font-size:34px; white-space:nowrap;">Muhammed Aslam</h2>
         <p class="sub">Son of Abubacker M.K. &amp; Selma</p>
         <div class="divider"><i></i></div>
         <p class="body-copy" style="font-size:15.5px;">Ali Najih</p>
@@ -509,7 +578,8 @@
     </section>
 
     <!-- PAGE 06 — COUNTDOWN -->
-    <section class="page" style="background:linear-gradient(180deg, var(--burgundy-deep), var(--burgundy));">
+    <section class="page" id="countdownSection" style="background:linear-gradient(180deg, var(--burgundy-deep), var(--burgundy)); position:relative; overflow:hidden;">
+      <div id="confettiField" style="position:absolute; inset:0; z-index:2; pointer-events:none;"></div>
       <div class="reveal">
         <p class="label on-dark">Counting Down To</p>
         <h2 class="name on-dark" style="font-size:28px;">Our Wedding Day</h2>
@@ -528,7 +598,7 @@
     <section class="page" style="background:linear-gradient(180deg, var(--wood), #1b0f07);">
       <div class="reveal">
         <p class="label on-dark">A Little Surprise</p>
-        <h2 class="name on-dark" style="font-size:26px;">Scratch to Reveal</h2>
+        <h2 class="name on-dark letters" style="font-size:26px;">Scratch to Reveal</h2>
         <div class="scratch-wrap" id="scratchWrap">
           <div class="scratch-msg"><p class="type-text" data-trigger="manual" id="scratchText">Your presence will make our celebration even more special.</p></div>
           <canvas id="scratchCanvas"></canvas>
@@ -568,7 +638,18 @@
       <div class="reveal">
         <p class="label on-dark">With Compliments</p>
         <div class="divider dark"><i></i></div>
-        <p class="body-copy on-dark" style="font-size:20px; font-family:var(--serif); font-style:italic; line-height:2;">Haneen<br>Muhammed<br>Ali</p>
+        <div class="flip-wrap" id="complimentsFlip">
+          <div class="flip-card" id="complimentsCard">
+            <div class="flip-face flip-front">
+              <p class="body-copy on-dark" style="font-size:15px; letter-spacing:1px; text-transform:uppercase;">Tap to Reveal</p>
+              <div class="divider dark" style="margin-top:14px;"><i></i></div>
+            </div>
+            <div class="flip-face flip-back">
+              <p class="body-copy on-dark" style="font-size:20px; font-family:var(--serif); font-style:italic; line-height:2;">Haneen<br>Muhammed<br>Ali</p>
+            </div>
+          </div>
+        </div>
+        <p class="scratch-hint">Tap the card</p>
       </div>
     </section>
 
@@ -617,6 +698,8 @@
     window.scrollTo(0,0);
     initReveal();
     initTypewriters();
+    initLetters();
+    initFlipCard();
     requestAnimationFrame(function(){ requestAnimationFrame(sizeCanvas); });
   }
 
@@ -672,6 +755,62 @@
     items.forEach(function(el){ io.observe(el); });
   }
 
+  /* ---------- letter-by-letter name reveal ---------- */
+  function initLetters(){
+    const els = document.querySelectorAll('.letters');
+    els.forEach(function(el){
+      if(el.dataset.split) return;
+      el.dataset.split = '1';
+      const text = el.textContent;
+      el.textContent = '';
+      text.split('').forEach(function(ch, idx){
+        const span = document.createElement('span');
+        span.className = 'char';
+        span.style.transitionDelay = (idx * 35) + 'ms';
+        span.textContent = ch === ' ' ? '\u00A0' : ch;
+        el.appendChild(span);
+      });
+    });
+    const io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.5 });
+    els.forEach(function(el){ io.observe(el); });
+  }
+
+  /* ---------- flip card (compliments) ---------- */
+  function initFlipCard(){
+    const card = document.getElementById('complimentsCard');
+    if(!card) return;
+    card.addEventListener('click', function(){
+      card.classList.toggle('flipped');
+    });
+  }
+
+  /* ---------- confetti burst on countdown finish ---------- */
+  let confettiFired = false;
+  function spawnConfetti(){
+    const field = document.getElementById('confettiField');
+    if(!field || confettiFired) return;
+    confettiFired = true;
+    const colors = ['#e6cd8f', '#c6a15b', '#efe4cc', '#ffffff'];
+    for(let i=0;i<50;i++){
+      const p = document.createElement('div');
+      p.className = 'confetti-piece';
+      const size = 4 + Math.random()*5;
+      p.style.width = size+'px';
+      p.style.height = (size*1.6)+'px';
+      p.style.left = (Math.random()*100)+'%';
+      p.style.background = colors[Math.floor(Math.random()*colors.length)];
+      p.style.animationDuration = (2.2 + Math.random()*1.6)+'s';
+      p.style.animationDelay = (Math.random()*0.6)+'s';
+      p.style.opacity = String(0.7 + Math.random()*0.3);
+      field.appendChild(p);
+      setTimeout(function(){ if(p.isConnected) p.remove(); }, 4200);
+    }
+  }
+
   /* ---------- countdown ---------- */
   function pad(n){ return String(n).padStart(2,'0'); }
   const target = new Date('2026-11-29T11:00:00+05:30').getTime();
@@ -685,6 +824,7 @@
     const dD=document.getElementById('cdD'), dH=document.getElementById('cdH'),
           dM=document.getElementById('cdM'), dS=document.getElementById('cdS');
     if(dD){ dD.textContent=pad(d); dH.textContent=pad(h); dM.textContent=pad(m); dS.textContent=pad(s); }
+    if(diff <= 0){ spawnConfetti(); }
   }
   tickCountdown();
   setInterval(tickCountdown, 1000);
