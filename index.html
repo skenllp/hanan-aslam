@@ -176,6 +176,7 @@
     text-transform:uppercase;
     color: var(--ink-soft);
     margin:0 0 14px;
+    font-weight:600;
   }
   .label.on-dark{ color: var(--cream-dim); }
 
@@ -187,6 +188,7 @@
     color:var(--burgundy);
     margin:0 0 6px;
     line-height:1.08;
+    letter-spacing:0.5px;
   }
   h2.name.on-dark{ color: var(--gold-light); }
 
@@ -195,7 +197,9 @@
     font-size:16px;
     color:var(--ink-soft);
     margin:0 0 18px;
-    font-style:italic;
+    font-style:normal;
+    font-weight:500;
+    letter-spacing:0.3px;
   }
   .sub.on-dark{ color:var(--cream-dim); }
 
@@ -206,6 +210,7 @@
     color:var(--ink-soft);
     max-width:320px;
     margin:0 auto;
+    font-weight:500;
   }
   .body-copy.on-dark{ color:var(--cream-dim); }
 
@@ -215,6 +220,7 @@
     letter-spacing:.6px;
     line-height:1.9;
     color: var(--ink-soft);
+    font-weight:500;
   }
 
   /* divider */
@@ -417,9 +423,9 @@
 
   /* ===== family ===== */
   .fam-block{ margin-bottom:30px; }
-  .fam-side{ font-family:var(--body); font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--gold-dim); margin-bottom:8px; }
-  .fam-parents{ font-family:var(--serif); font-style:italic; font-size:26px; color:var(--burgundy); margin:0 0 10px; }
-  .fam-kids{ font-family:var(--body); font-size:15.5px; color:var(--ink-soft); line-height:1.9; }
+  .fam-side{ font-family:var(--body); font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--gold-dim); margin-bottom:8px; font-weight:600; }
+  .fam-parents{ font-family:var(--serif); font-style:italic; font-size:26px; color:var(--burgundy); margin:0 0 10px; font-weight:600; }
+  .fam-kids{ font-family:var(--body); font-size:15.5px; color:var(--ink-soft); line-height:1.9; font-weight:500; }
 
   /* map btn */
   a.btn-gold{ cursor:pointer; }
@@ -455,7 +461,7 @@
   <section id="opening" aria-label="Opening">
     <img class="frame-img" src="assets/poster.jpg" alt="Ornate closed wooden doors, Persian carpet and brass lanterns">
     <div class="veil"></div>
-    <div class="ar-welcome">أهلاً وسهلاً</div>
+    <div class="ar-welcome">السلام عليكم ورحمة الله وبركاته</div>
     <div class="ar-names">
       <p class="ar-name">حنان</p>
       <div class="ar-divider"><i></i></div>
@@ -649,7 +655,7 @@
     </section>
 
     <!-- PAGE 09 — FAMILY -->
-    <section class="page" style="background:linear-gradient(180deg, var(--cream-dim), var(--cream));">
+    <!-- <section class="page" style="background:linear-gradient(180deg, var(--cream-dim), var(--cream));">
       <div class="reveal">
         <p class="label">Our Families</p>
         <div class="divider"><i></i></div>
@@ -665,7 +671,7 @@
           <p class="fam-kids">Ali Najih</p>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- PAGE 10 — COMPLIMENTS -->
     <section class="page" style="background:linear-gradient(180deg, var(--wood), #1b0f07);">
