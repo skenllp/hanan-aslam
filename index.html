@@ -285,6 +285,7 @@
     text-shadow: 0 2px 8px rgba(0,0,0,.8);
   }
   .scroll-cue .line{ width:1px; height:26px; background:linear-gradient(var(--gold-light), transparent); animation:cueMove 2.2s ease-in-out infinite; }
+  .scroll-cue span:last-child{ animation:cueMove 2.2s ease-in-out infinite; }
   @keyframes cueMove{ 0%{opacity:.2; transform:translateY(-4px);} 50%{opacity:1;} 100%{opacity:.2; transform:translateY(6px);} }
   @keyframes heroFadeIn{ from{ opacity:0; transform:translateY(8px);} to{ opacity:.95; transform:translateY(0);} }
 
@@ -486,7 +487,7 @@
       <img src="assets/hero.png" alt="Hanan Azad and Muhammed Aslam wedding invitation, 29 November 2026">
       <div class="hero-butterfly hero-butterfly-1"><img src="assets/butterfly.png" alt=""></div>
       <div class="hero-butterfly hero-butterfly-2"><img src="assets/butterfly.png" alt=""></div>
-      <div class="scroll-cue"><span>Scroll Down</span><span class="line"></span></div>
+      <div class="scroll-cue"><span>Scroll Down</span><span class="line"></span><span style="font-size:18px;">↓</span></div>
     </section>
 
     <!-- PAGE 01 — INVITATION -->
